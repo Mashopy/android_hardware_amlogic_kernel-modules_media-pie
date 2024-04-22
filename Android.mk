@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-ifneq ($(filter gxm gxl,$(TARGET_AMLOGIC_SOC)),)
+ifneq ($(filter gxm gxl g12b,$(TARGET_AMLOGIC_SOC)),)
+ifeq ($(TARGET_USES_P_MODULES),true)
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -66,4 +67,5 @@ $(_media_ko): $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(BOARD_KERNEL_IMAGE_NAME)
 include $(BUILD_SYSTEM)/base_rules.mk
 endif
 
+endif
 endif
